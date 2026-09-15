@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+cache/
+storage/
+demo_images/
+.git/
+
+.venv/
+.installed

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RoadScan — сообщить о дефекте дороги</title>
+<link rel="icon" href="/static/favicon.svg">
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>🛣️ RoadScan</h1>
+    <div class="sub">Выявление дефектов дорожного покрытия</div>
+  </div>
+  <nav>
+    <a href="/static/index.html" class="active">Сообщить о дефекте</a>
+    <a href="/dashboard">Очередь ремонта</a>
+    <a href="/docs" target="_blank" rel="noopener">API</a>
+  </nav>
+</header>
+
+<main>
+  <div class="card">
+    <h2>Загрузите фотографию участка дороги</h2>
+
+    <div class="dropzone" id="dz">
+      <div class="icon">📷</div>
+      <p>Нажмите, чтобы выбрать фото или снять на камеру</p>
+      <small>JPEG, PNG или WebP · до 10 МБ</small>
+      <input type="file" id="file" accept="image/*" capture="environment" hidden>
+    </div>
+    <img id="preview" alt="Предпросмотр загруженного снимка">
+
+    <h3>Где снято</h3>
+    <div class="field">
+      <label for="zone">Участок дорожной сети</label>
+      <select id="zone"></select>
+    </div>
+
+    <div id="manual" class="row hidden">
+      <div class="field">
+        <label for="road">Тип дороги</label>
+        <select id="road"></select>
+      </div>
+      <div class="field">
+        <label for="traffic">Интенсивность движения</label>
+        <select id="traffic"></select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label for="weather">Погода на момент съёмки</label>
+        <select id="weather"></select>
+      </div>
+    </div>
+
+    <div id="flagsWrap" class="field hidden">
+      <label>Что рядом с дефектом</label>
+      <div class="checks" id="flags"></div>
+    </div>
+
+    <div class="field">
+      <label class="checks" style="display:inline-flex">
+        <input type="checkbox" id="anon" checked>
+        Размыть лица и автомобильные номера
+      </label>
+    </div>
+
+    <button id="send" disabled>Проанализировать</button>
+    <div id="err" class="note err hidden"></div>
+  </div>
+
+  <div id="result" class="hidden"></div>
+
+  <p class="disclaimer">
+    Система выдаёт рекомендацию по очерёдности ремонта для планирования работ.<br>
+    Она не назначает штрафы и юридические санкции подрядчику.
+  </p>
+</main>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

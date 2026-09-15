@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RoadScan — очередь ремонта</title>
+<link rel="icon" href="/static/favicon.svg">
+<link rel="stylesheet" href="/static/styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>🛣️ RoadScan</h1>
+    <div class="sub">Очередь ремонта · управление дорог</div>
+  </div>
+  <nav>
+    <a href="/static/index.html">Сообщить о дефекте</a>
+    <a href="/dashboard" class="active">Очередь ремонта</a>
+    <a href="/docs" target="_blank" rel="noopener">API</a>
+  </nav>
+</header>
+
+<main>
+  <div class="card">
+    <div class="metrics" id="kpi"></div>
+  </div>
+
+  <div class="card">
+    <div class="toolbar">
+      <select id="fLevel" style="width:auto">
+        <option value="">Все приоритеты</option>
+        <option value="high">Высокий</option>
+        <option value="medium">Средний</option>
+        <option value="low">Низкий</option>
+      </select>
+      <select id="fStatus" style="width:auto">
+        <option value="">Все статусы</option>
+        <option value="new">Новая</option>
+        <option value="in_progress">В работе</option>
+        <option value="done">Выполнено</option>
+        <option value="rejected">Отклонена</option>
+      </select>
+      <span class="grow"></span>
+      <button class="ghost small" id="refresh">Обновить</button>
+      <button class="small" onclick="location.href='/api/export.csv'">⬇ Наряд-задание (CSV)</button>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th></th><th>ID</th><th>Участок</th><th>Дефект</th>
+            <th>Приоритет</th><th class="num">Балл</th><th class="num">Увер.</th>
+            <th>Срок до</th><th>Статус</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <div id="empty" class="note info hidden">
+      Очередь пуста. Загрузите фото на странице «Сообщить о дефекте».
+    </div>
+  </div>
+
+  <div class="card" id="mapCard">
+    <h2>Карта заявок</h2>
+    <div id="map"></div>
+    <p class="small muted" style="margin:10px 0 0">
+      Размер метки соответствует баллу приоритета. Нажмите на метку, чтобы открыть карточку.
+    </p>
+  </div>
+
+  <p class="disclaimer">
+    Приоритет носит рекомендательный характер и служит для планирования работ.<br>
+    Система не назначает штрафы и юридические санкции подрядчику.
+  </p>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="/static/dashboard.js"></script>
+</body>
+</html>

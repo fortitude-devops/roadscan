@@ -1,0 +1,19 @@
+# --- веб-сервис ---
+fastapi>=0.115
+uvicorn[standard]>=0.30
+python-multipart>=0.0.9
+
+# --- провайдеры моделей ---
+onnxruntime>=1.17    # локальный детектор дорожных повреждений (~50 МБ, без PyTorch)
+httpx>=0.27          # OpenRouter, Groq, OpenAI, Mistral — любой OpenAI-совместимый
+google-genai>=2.0    # нативный SDK Google Gemini
+pydantic>=2.6
+python-dotenv>=1.0
+
+# --- обработка изображений и данные ---
+opencv-python-headless>=4.9
+numpy>=1.26
+pandas>=2.1
+
+# --- необязательно: внутренняя панель отладки для команды ---
+streamlit>=1.40

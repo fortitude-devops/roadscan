@@ -1,0 +1,13 @@
+zone_id,zone_name,road_type,traffic_level,lat,lon,context_flags
+ZONE-01,"ул. Абая (центр)",main_road,high,44.8479,65.5093,pedestrian_crossing|bus_stop
+ZONE-02,"пр. Назарбаева",main_road,high,44.8512,65.5210,pedestrian_crossing
+ZONE-03,"Подъезд к школе №17",school_access,medium,44.8390,65.4980,school_zone|pedestrian_crossing
+ZONE-04,"Мост через Сырдарью",bridge,high,44.8455,65.4870,sharp_turn
+ZONE-05,"Трасса А-17, 12 км",highway,high,44.9100,65.6100,night_lighting_poor
+ZONE-06,"ул. Айтеке би",secondary,medium,44.8520,65.5330,
+ZONE-07,"Подъезд к облбольнице",hospital_access,medium,44.8560,65.5010,pedestrian_crossing
+ZONE-08,"Двор мкр. Сырдарья, 14",yard,low,44.8300,65.5400,
+ZONE-09,"ул. Коркыт ата",secondary,low,44.8610,65.5150,
+ZONE-10,"Развязка у автовокзала",main_road,high,44.8200,65.5600,bus_stop|sharp_turn
+ZONE-11,"Подъезд к детсаду «Балдырган»",school_access,low,44.8340,65.5220,school_zone
+ZONE-12,"ул. Желтоксан",secondary,medium,44.8480,65.5280,night_lighting_poor
